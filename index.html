@@ -221,6 +221,11 @@
         <h3>Orden SEPA</h3>
         <span class="desc">Autorización de adeudo recurrente en cuenta bancaria (IBAN).</span>
       </button>
+      <button class="pick" onclick="show('consentimiento')">
+        <span class="tag">Paso 4 · Consentimiento</span>
+        <h3>Consentimiento del interesado</h3>
+        <span class="desc">Información de protección de datos (RGPD) y consentimiento de tratamiento de datos personales.</span>
+      </button>
     </div>
     <p class="terms-link-wrap"><a class="terms-link" onclick="openTerms()">Ver términos y condiciones generales</a></p>
   </section>
@@ -469,6 +474,109 @@
     </div>
   </section>
 
+  <!-- ===== CONSENTIMIENTO ===== -->
+  <section id="consentimiento" class="hidden">
+    <div class="form-head">
+      <button class="back" onclick="show('home')">← Volver</button>
+      <h2>Consentimiento del interesado</h2>
+    </div>
+
+    <div class="drafts hidden" id="c_drafts"></div>
+
+    <div class="card">
+      <p class="intro"><b>En cumplimiento del Reglamento General de Protección de Datos -UE- 2016/679 (RGPD)</b>, según los artículos 5, 6 y 7, y por la LOPD 3/2018, de garantía de los derechos digitales, en su Título II, se le informa que el Responsable del Tratamiento de sus datos es:</p>
+    </div>
+
+    <div class="card">
+      <p class="card-title">Información del responsable</p>
+      <label class="field">
+        <span class="lab">Organización</span>
+        <input type="text" id="c_org" value="ALTOMURO CAPITAL SL" readonly>
+      </label>
+      <div class="row2">
+        <label class="field">
+          <span class="lab">CIF/NIF</span>
+          <input type="text" id="c_nif" value="B22910467" readonly>
+        </label>
+        <label class="field">
+          <span class="lab">Localidad</span>
+          <input type="text" id="c_localidad" value="Barcelona" readonly>
+        </label>
+      </div>
+      <label class="field">
+        <span class="lab">Dirección</span>
+        <input type="text" id="c_dir" value="Calle Alfons XII, 113 · 08006 Barcelona" readonly>
+      </label>
+      <label class="field">
+        <span class="lab">Email</span>
+        <input type="email" id="c_email" value="plazamolina@fit20.es" readonly>
+      </label>
+    </div>
+
+    <div class="card">
+      <p class="card-title">Información sobre el tratamiento de datos</p>
+      <p class="intro" style="font-size:13px;line-height:1.6">ALTOMURO CAPITAL SL trata la información y los datos personales de manera lícita, leal y transparente en relación con el interesado, con fines determinados, explícitos y legítimos. Los datos serán adecuados, pertinentes y limitados a lo necesario en relación con los fines para los que son tratados.</p>
+      <p class="intro" style="font-size:13px;line-height:1.6;margin-top:12px">Se adoptarán todas las medidas razonables para que se supriman o rectifiquen sin dilación los datos personales que sean inexactos. Los datos serán tratados con seguridad adecuada, incluida la protección contra el tratamiento no autorizado o ilícito y contra la pérdida, destrucción o daño accidental.</p>
+      <p class="intro" style="font-size:13px;line-height:1.6;margin-top:12px">Solo se cederán los datos por obligación legal, para el tratamiento administrativo o por motivos relacionados con el servicio ofrecido.</p>
+    </div>
+
+    <div class="card">
+      <p class="card-title">Datos del interesado</p>
+      <label class="field">
+        <span class="lab">Nombre y apellidos <span class="req">*</span></span>
+        <input type="text" id="c_nombre" autocomplete="name">
+      </label>
+      <label class="field">
+        <span class="lab">NIF/DNI <span class="req">*</span></span>
+        <input type="text" id="c_dni">
+      </label>
+    </div>
+
+    <div class="card">
+      <p class="card-title">Derechos del interesado</p>
+      <p class="intro" style="font-size:13px;line-height:1.6">El interesado podrá ejercer los derechos de:</p>
+      <div class="rights-list">
+        <p style="font-size:13px;margin:8px 0"><span style="font-weight:600">•</span> Acceso a los datos personales</p>
+        <p style="font-size:13px;margin:8px 0"><span style="font-weight:600">•</span> Oposición al tratamiento</p>
+        <p style="font-size:13px;margin:8px 0"><span style="font-weight:600">•</span> Rectificación de datos inexactos</p>
+        <p style="font-size:13px;margin:8px 0"><span style="font-weight:600">•</span> Supresión de datos</p>
+        <p style="font-size:13px;margin:8px 0"><span style="font-weight:600">•</span> Limitación del tratamiento</p>
+        <p style="font-size:13px;margin:8px 0"><span style="font-weight:600">•</span> Portabilidad de datos</p>
+      </div>
+      <p class="intro" style="font-size:13px;line-height:1.6;margin-top:14px">Para ejercer estos derechos, dirigirse a: <b>ALTOMURO CAPITAL SL</b> (plazamolina@fit20.es)</p>
+      <p class="intro" style="font-size:13px;line-height:1.6;margin-top:12px">El interesado tiene derecho a presentar reclamaciones a la Autoridad de Control.</p>
+    </div>
+
+    <div class="card">
+      <p class="card-title">Consentimiento</p>
+      <div class="agree">
+        <input type="checkbox" id="c_consent">
+        <label for="c_consent">He leído, comprendido y he sido informado de la política de protección de datos. Otorgo mi consentimiento para el tratamiento de mis datos personales de conformidad con lo indicado anteriormente. Entiendo que puedo retirar mi consentimiento en cualquier momento, sin que esto afecte a la licitud del tratamiento anterior.</label>
+      </div>
+    </div>
+
+    <div class="card">
+      <p class="card-title">Firma</p>
+      <div class="row2">
+        <label class="field"><span class="lab">Lugar</span><input type="text" id="c_lugar" value="Barcelona"></label>
+        <label class="field"><span class="lab">Fecha <span class="req">*</span></span><input type="date" id="c_fecha"></label>
+      </div>
+      <div class="sig-block">
+        <div class="sig-label">Firma del interesado <span class="req">*</span>
+          <button class="sig-clear" onclick="clearSig('c_sig')">Borrar</button>
+        </div>
+        <canvas class="sig-pad" id="c_sig"></canvas>
+        <div class="sig-hint">Firma con el dedo dentro del recuadro</div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn-secondary" onclick="saveDraft('consentimiento')">Guardar borrador</button>
+      <button class="btn" onclick="generar('consentimiento')">Generar PDF firmado</button>
+      <div class="msg" id="c_msg"></div>
+    </div>
+  </section>
+
 </div>
 
 <!-- ===== MODAL TÉRMINOS Y CONDICIONES ===== -->
@@ -586,6 +694,7 @@ function today(){const d=new Date();return d.toISOString().slice(0,10);}
 document.getElementById('a_fecha').value=today();
 document.getElementById('s_fecha').value=today();
 document.getElementById('i_fecha').value=today();
+document.getElementById('c_fecha').value=today();
 
 /* Botones segmentados (selección única) */
 function initSeg(segId, onChange){
